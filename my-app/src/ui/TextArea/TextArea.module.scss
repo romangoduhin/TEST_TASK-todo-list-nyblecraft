@@ -1,0 +1,16 @@
+@import "../../assets/variables";
+@import "../../assets/mixins";
+
+.customTextArea {
+  padding: 10px;
+  font-size: $mediumFont;
+  border: none;
+  border-radius: 10px;
+  outline: $grey 1px solid;
+  background-color: $white;
+  resize: none;
+
+  &:focus {
+    @include focused();
+  }
+}

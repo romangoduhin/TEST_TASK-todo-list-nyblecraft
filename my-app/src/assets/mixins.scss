@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin focused() {
+  outline: $blue 2px solid;
+}

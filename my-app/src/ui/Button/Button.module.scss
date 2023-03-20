@@ -1,0 +1,20 @@
+@import "../../assets/variables";
+@import "../../assets/mixins";
+
+.customButton {
+  font-size: $smallFont;
+  color: $white;
+  background-color: $blue;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    filter: grayscale(10%);
+  }
+
+  &.disabled {
+    filter: grayscale(50%);
+    cursor: not-allowed;
+  }
+}
