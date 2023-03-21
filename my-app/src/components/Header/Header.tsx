@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Button, TextArea} from "@ui";
 import styles from "./Header.module.scss";
 import {HeaderProps} from "./Header.types";
-import {extractTags, getRandId} from "@helpers";
+import {extractTags, getRandId, isStrEmpty} from "@helpers";
 
 export const Header: React.FC<HeaderProps> = ({addNote}) => {
   const [value, setValue] = useState<string>('')
@@ -12,15 +12,13 @@ export const Header: React.FC<HeaderProps> = ({addNote}) => {
   }
 
   const onSubmitHandler = (): void => {
-    const trimmedValue = value.trim();
+    if (isStrEmpty(value)) return
 
-    if (!trimmedValue) return
-
-    const tags = extractTags(trimmedValue)
+    const tags = extractTags(value)
 
     const note = {
       id: getRandId(),
-      text: trimmedValue,
+      text: value,
       tags
     }
 

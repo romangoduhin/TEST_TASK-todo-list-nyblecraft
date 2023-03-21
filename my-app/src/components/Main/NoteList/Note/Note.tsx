@@ -3,7 +3,7 @@ import {NoteProps} from "./Note.types";
 import styles from "./Note.module.scss";
 import {NoteHeader} from "./NoteHeader";
 import {NoteContent} from "./NoteContent";
-import {extractTags} from "@helpers";
+import {extractTags, isStrEmpty} from "@helpers";
 
 export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) => {
   const [text, setText] = useState(data.text);
@@ -17,11 +17,11 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   const onSaveHandler = (): void => {
     onEditHandler();
 
-    const trimmedText = text.trim()
+    if (isStrEmpty(text)) return
 
-    const tags = extractTags(trimmedText);
+    const tags = extractTags(text);
 
-    editNote(data, trimmedText, tags)
+    editNote(data, text, tags)
   }
 
   const onDeleteHandler = (): void => {
@@ -29,13 +29,11 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   }
 
   useEffect(() => {
-    const trimmedText = text.trim()
-
-    if (!trimmedText) {
+    if (isStrEmpty(text)) {
       setTsSaveDisabled(true)
       return
     }
-
+    
     setTsSaveDisabled(false)
   }, [text]);
 
