@@ -11,7 +11,7 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   const [isSaveDisabled, setTsSaveDisabled] = useState(false);
 
   const onEditHandler = (): void => {
-    setIsEditing(prev => !prev);
+    setIsEditing(isEditing => !isEditing);
   }
 
   const onSaveHandler = (): void => {
@@ -33,7 +33,7 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
       setTsSaveDisabled(true)
       return
     }
-    
+
     setTsSaveDisabled(false)
   }, [text]);
 
@@ -41,7 +41,6 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   return (
     <div className={styles.note}>
       <NoteHeader index={index}
-                  data={data}
                   isEditing={isEditing}
                   isSaveDisabled={isSaveDisabled}
                   onEdit={onEditHandler}

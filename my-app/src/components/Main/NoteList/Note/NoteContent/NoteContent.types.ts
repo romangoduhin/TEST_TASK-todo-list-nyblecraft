@@ -1,6 +1,6 @@
 export interface NoteContentProps {
   text: string,
-  setText: (prev: string) => void,
+  setText: (text: string) => void,
   isEditing: boolean,
   onSave: () => void,
 }
