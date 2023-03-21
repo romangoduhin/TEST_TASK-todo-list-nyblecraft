@@ -1,5 +1,5 @@
-import {Note} from "../../types/globalTypes";
+import {Note} from "@globalTypes";
 
 export interface HeaderProps {
-    addNote: (note: Note) => void
+  addNote: (note: Note) => void
 }

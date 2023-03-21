@@ -1,4 +1,4 @@
-@import "./src/assets/variables";
+@import "@variables";
 
 html {
   box-sizing: border-box;
@@ -17,6 +17,10 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+textarea {
+  font-family: "Times New Roman", serif;
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {

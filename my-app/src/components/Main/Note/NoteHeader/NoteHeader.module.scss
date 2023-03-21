@@ -1,20 +1,7 @@
-@import "./src/assets/variables";
-
 .header {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  .index {
-    font-size: $largeFont;
-    font-weight: 600;
-  }
-
-  .deleteButton {
-    width: 25%;
-    height: 100%;
-    background-color: $red;
-  }
 }

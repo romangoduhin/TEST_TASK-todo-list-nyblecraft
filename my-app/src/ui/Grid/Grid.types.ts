@@ -1,6 +1,6 @@
-import {Children, ClassName} from "../../types/globalTypes";
+import {Children, ClassName} from "@globalTypes";
 
 export interface GridProps {
-    children: Children,
-    className?: ClassName
+  children: Children,
+  className?: ClassName
 }

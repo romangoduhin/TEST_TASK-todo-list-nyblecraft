@@ -1,6 +1,7 @@
-import {Note, Notes} from "../../types/globalTypes";
+import {Note, Notes} from "@globalTypes";
 
 export interface MainProps {
-    deleteNote: (note: Note) => void,
-    notes: Notes
+  deleteNote: (note: Note) => void,
+  editNote: (note: Note, newText: string) => void
+  notes: Notes
 }
