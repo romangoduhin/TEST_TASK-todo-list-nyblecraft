@@ -1,21 +1,45 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import {TextArea} from "../../ui/TextArea/TextArea";
-import {TextAreaValue} from "../../types/globalTypes";
 import styles from "./Header.module.scss";
 import {Button} from "../../ui/Button/Button";
+import {HeaderProps} from "./Header.types";
+import {getRandId} from "../../helpers/getRandId";
 
-export const Header = () => {
-    const [value, setValue] = useState<TextAreaValue>('')
+export const Header: React.FC<HeaderProps> = ({addNote}) => {
+    const [value, setValue] = useState<string>('')
 
-    const onAddNote = () => {
-        console.log(value)
+    const clearValue = (): void => {
+        setValue('')
+    }
+
+    const onSubmitHandler = (): void => {
+        if (!value) return;
+
+        const note = {
+            id: getRandId(),
+            text: value,
+            tags: []
+        }
+
+        addNote(note)
+        clearValue()
     }
 
     return (
-        <header className={styles.customHeader}>
-            <TextArea className={styles.headerTextArea} value={value} setValue={setValue}
-                      placeholder={"Input the note text"}/>
-            <Button className={styles.headerButton} onClick={onAddNote} disabled={false} type="submit">Add Note</Button>
+        <header className={styles.header}>
+            <TextArea className={styles.headerTextArea}
+                      value={value}
+                      setValue={setValue}
+                      placeholder={"Input the note text"}
+                      onSubmit={onSubmitHandler}
+            />
+
+            <Button className={styles.headerButton}
+                    onClick={onSubmitHandler}
+                    disabled={false}
+                    type="submit">
+                Add Note
+            </Button>
         </header>
     );
 };

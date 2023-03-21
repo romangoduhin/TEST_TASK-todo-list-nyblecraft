@@ -1,6 +1,18 @@
+@import "./src/assets/variables";
+
 html {
   box-sizing: border-box;
   font-size: 16px;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    background-color: $grey;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $blue;
+  }
 }
 
 *, *:before, *:after {
@@ -11,6 +23,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  overflow-x: hidden;
 }
 
 ol, ul {

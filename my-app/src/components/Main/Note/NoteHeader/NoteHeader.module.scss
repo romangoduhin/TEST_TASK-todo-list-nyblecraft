@@ -2,19 +2,19 @@
 
 .header {
   width: 100%;
-  height: 10%;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 
-  .headerTextArea {
-    width: 89%;
-    height: 100%;
+  .index {
+    font-size: $largeFont;
+    font-weight: 600;
   }
 
-  .headerButton {
-    width: 10%;
+  .deleteButton {
+    width: 25%;
     height: 100%;
+    background-color: $red;
   }
 }

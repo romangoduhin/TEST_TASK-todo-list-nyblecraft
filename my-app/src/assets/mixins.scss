@@ -10,3 +10,9 @@
 @mixin focused() {
   outline: $blue 2px solid;
 }
+
+@mixin outlined() {
+  border: none;
+  border-radius: 10px;
+  outline: $grey 1px solid;
+}
