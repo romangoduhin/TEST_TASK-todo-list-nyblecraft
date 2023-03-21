@@ -1,0 +1,9 @@
+@import "@mixins";
+@import "@variables";
+
+.tag {
+  padding: 5px;
+  background-color: $purple;
+  @include flexCenter(row);
+  @include outlined();
+}

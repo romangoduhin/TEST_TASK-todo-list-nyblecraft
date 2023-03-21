@@ -1,9 +1,19 @@
+@import "@mixins";
+@import "@variables";
+
 .main {
-  padding-top: 30px;
+  padding-top: 15px;
   width: 100%;
-  min-height: 90%;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 15px;
+}
+
+.emptyContent {
+  width: 100%;
+  height: 90%;
+  color: $blue;
+  @include flexCenter(row);
 }

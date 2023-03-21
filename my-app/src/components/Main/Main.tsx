@@ -1,21 +1,16 @@
 import React from "react";
-import {Grid} from "@ui";
 import {MainProps} from "./Main.types";
+import {NoteList} from "./NoteList";
+import {TagsList} from "./TagsList";
 import styles from "./Main.module.scss";
-import {Note} from "./Note";
+import {Text} from "@ui";
+import {isArrEmpty} from "@helpers";
 
-export const Main: React.FC<MainProps> = ({deleteNote, editNote, notes}) => {
-  return (
-    <main className={styles.main}>
-      <Grid>
-        {notes.map((note, index) => (
-          <Note deleteNote={deleteNote}
-                editNote={editNote}
-                key={note.id}
-                index={index}
-                data={note}
-          />))}
-      </Grid>
-    </main>
-  );
+export const Main: React.FC<MainProps> = ({deleteNote, editNote, notes, tags}) => {
+  if (isArrEmpty(notes)) return <Text className={styles.emptyContent} size={"large"}>Nothing To Show</Text>
+
+  return <main className={styles.main}>
+    <TagsList tags={tags}/>
+    <NoteList notes={notes} deleteNote={deleteNote} editNote={editNote}/>
+  </main>
 };
