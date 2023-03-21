@@ -1,41 +1,7 @@
-@import "./src/assets/variables";
-
 .header {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  .index {
-    width: 25%;
-    font-size: $largeFont;
-    font-weight: 600;
-  }
-
-  .buttons {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .saveButton {
-      width: 45%;
-      height: 100%;
-      background-color: $green;
-    }
-
-    .editButton {
-      width: 45%;
-      height: 100%;
-      background-color: $yellow;
-    }
-
-    .deleteButton {
-      width: 45%;
-      height: 100%;
-      background-color: $red;
-    }
-  }
 }

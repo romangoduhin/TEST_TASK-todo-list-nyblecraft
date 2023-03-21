@@ -15,9 +15,9 @@ export type Tag = string;
 export type Tags = Array<Tag>;
 
 export interface Note {
-    id: Id,
-    text: string,
-    tags: Tags
+  id: Id,
+  text: string,
+  tags: Tags
 }
 
 export type Notes = Array<Note> | [];

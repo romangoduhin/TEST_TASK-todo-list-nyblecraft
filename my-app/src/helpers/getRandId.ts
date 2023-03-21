@@ -1,5 +1,5 @@
-import {Id} from "../types/globalTypes";
+import {Id} from "@globalTypes";
 
 export const getRandId = (): Id => {
-    return Date.now();
+  return Date.now();
 }

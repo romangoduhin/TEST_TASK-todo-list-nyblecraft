@@ -1,10 +1,9 @@
-@import "../../assets/variables";
-@import "../../assets/mixins";
+@import "@variables";
+@import "@mixins";
 
 .customTextArea {
   padding: 10px;
   font-size: $mediumFont;
-  font-family: "Times New Roman", serif;
   background-color: $white;
   resize: none;
   @include outlined();
