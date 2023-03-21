@@ -12,7 +12,7 @@ export type Id = number;
 
 export type Tag = string;
 
-export type Tags = Array<Tag>;
+export type Tags = Array<Tag> | [];
 
 export interface Note {
   id: Id,

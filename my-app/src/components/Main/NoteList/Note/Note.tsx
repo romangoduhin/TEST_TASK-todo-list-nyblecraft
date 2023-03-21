@@ -3,6 +3,7 @@ import {NoteProps} from "./Note.types";
 import styles from "./Note.module.scss";
 import {NoteHeader} from "./NoteHeader";
 import {NoteContent} from "./NoteContent";
+import {extractTags} from "@helpers";
 
 export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) => {
   const [text, setText] = useState(data.text);
@@ -15,9 +16,9 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   const onSaveHandler = (): void => {
     onEditHandler();
 
-    if (!text) return;
+    const tags = extractTags(text);
 
-    editNote(data, text)
+    editNote(data, text, tags)
   }
 
   const onDeleteHandler = (): void => {

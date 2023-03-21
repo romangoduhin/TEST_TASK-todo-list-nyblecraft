@@ -1,4 +1,5 @@
 @import "@mixins";
+@import "@variables";
 
 .note {
   padding: 15px;
@@ -8,5 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: $white;
   @include outlined();
 }

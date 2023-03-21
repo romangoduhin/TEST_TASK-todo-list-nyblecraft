@@ -32,6 +32,9 @@
       ],
       "@globalTypes": [
         "./src/types"
+      ],
+      "@helpers": [
+        "./src/helpers"
       ]
     }
   },

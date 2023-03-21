@@ -1,21 +1,14 @@
 import React from "react";
-import {Grid} from "@ui";
 import {MainProps} from "./Main.types";
+import {NoteList} from "./NoteList";
+import {TagsList} from "./TagsList";
 import styles from "./Main.module.scss";
-import {Note} from "./Note";
 
-export const Main: React.FC<MainProps> = ({deleteNote, editNote, notes}) => {
+export const Main: React.FC<MainProps> = ({deleteNote, editNote, notes, tags}) => {
   return (
     <main className={styles.main}>
-      <Grid>
-        {notes.map((note, index) => (
-          <Note deleteNote={deleteNote}
-                editNote={editNote}
-                key={note.id}
-                index={index}
-                data={note}
-          />))}
-      </Grid>
+      <TagsList tags={tags}/>
+      <NoteList notes={notes} deleteNote={deleteNote} editNote={editNote}/>
     </main>
   );
 };

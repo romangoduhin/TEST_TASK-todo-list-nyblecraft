@@ -11,6 +11,7 @@ export default defineConfig({
       "@mixins": path.join(__dirname, "./src/assets/mixins.scss"),
       "@variables": path.join(__dirname, "./src/assets/variables.scss"),
       "@globalTypes": path.join(__dirname, "./src/types"),
+      "@helpers": path.join(__dirname, "./src/helpers"),
     },
   },
 })
