@@ -4,7 +4,7 @@ import classNames from "classnames";
 import {ButtonProps} from "./Button.types";
 
 
-export const Button: React.FC<ButtonProps> = ({className, disabled, children, onClick, ...attributes}) => {
+export const Button: React.FC<ButtonProps> = ({className, disabled= false, children, onClick, ...attributes}) => {
     const buttonClasses = classNames(
         styles.customButton,
         className,
