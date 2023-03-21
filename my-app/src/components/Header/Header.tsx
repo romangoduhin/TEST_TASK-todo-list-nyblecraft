@@ -12,13 +12,15 @@ export const Header: React.FC<HeaderProps> = ({addNote}) => {
   }
 
   const onSubmitHandler = (): void => {
-    if (!value) return
+    const trimmedValue = value.trim();
 
-    const tags = extractTags(value);
+    if (!trimmedValue) return
+
+    const tags = extractTags(trimmedValue)
 
     const note = {
       id: getRandId(),
-      text: value,
+      text: trimmedValue,
       tags
     }
 

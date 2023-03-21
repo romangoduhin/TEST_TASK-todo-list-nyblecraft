@@ -42,7 +42,7 @@ export const App: React.FC = () => {
     const notesWithTags = notes.filter(note => !isArrEmpty(note.tags))
     const tags = notesWithTags.map(note => note.tags).flat()
 
-    const uniqueTags = removeDuplicates(tags);
+    const uniqueTags = removeDuplicates(tags)
 
     if (!uniqueTags) return
 
