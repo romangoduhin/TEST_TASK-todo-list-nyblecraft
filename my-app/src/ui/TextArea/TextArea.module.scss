@@ -4,6 +4,7 @@
 .customTextArea {
   padding: 10px;
   font-size: $mediumFont;
+  font-family: "Times New Roman", serif;
   background-color: $white;
   resize: none;
   @include outlined();

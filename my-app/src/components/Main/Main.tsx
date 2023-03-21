@@ -4,11 +4,11 @@ import {MainProps} from "./Main.types";
 import styles from "./Main.module.scss";
 import {Note} from "./Note/Note";
 
-export const Main: React.FC<MainProps> = ({deleteNote, notes}) => {
+export const Main: React.FC<MainProps> = ({deleteNote,editNote, notes}) => {
     return (
         <main className={styles.main}>
             <Grid>
-                {notes.map((note, ind) => <Note deleteNote={deleteNote} key={note.id} index={ind} data={note}/>)}
+                {notes.map((note, ind) => <Note deleteNote={deleteNote} editNote={editNote} key={note.id} index={ind} data={note}/>)}
             </Grid>
         </main>
     );

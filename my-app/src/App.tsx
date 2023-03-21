@@ -17,11 +17,24 @@ export const App: React.FC = () => {
         setNotes(notes => notes.filter(el => el.id !== id))
     }
 
+    const editNote = (note: Note, newText: string): void => {
+        const id = note.id
+
+        setNotes(notes => notes.map(el => {
+            if (el.id !== id) return el
+
+            const newEl = el;
+            newEl.text = newText
+
+            return newEl;
+        }))
+    }
+
     return (
         <div className={styles.app}>
             <div className={styles.content}>
                 <Header addNote={addNote}/>
-                <Main deleteNote={deleteNote} notes={notes}/>
+                <Main deleteNote={deleteNote} editNote={editNote} notes={notes}/>
             </div>
         </div>
     )
