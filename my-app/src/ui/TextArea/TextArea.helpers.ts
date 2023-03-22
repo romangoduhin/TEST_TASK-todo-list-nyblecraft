@@ -1,7 +1,9 @@
-export const applyHighlights = (value: string): string => {
-  const searchedValue = value.match(/#[a-z0-9_]+/g);
+import {getExtractedTags} from "../../App.helpers";
 
-  if (!searchedValue) return value;
+export const applyHighlights = (text: string): string => {
+  const tags = getExtractedTags(text);
 
-  return value.split(' ').map(el => searchedValue.includes(el) ? `<mark>${el}</mark>` : el).join(' ')
+  if (!tags) return text;
+
+  return text.split(' ').map(el => tags.includes(el) ? `<mark>${el}</mark>` : el).join(' ')
 }

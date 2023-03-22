@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useLayoutEffect, useRef, useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, UIEvent, useLayoutEffect, useRef, useState} from "react";
 import classNames from "classnames";
 import {TextAreaProps} from "./TextArea.types";
 import styles from "./TextArea.module.scss";
@@ -14,7 +14,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
                                                     onSubmit,
                                                     ...attributes
                                                   }) => {
-  const textAreaRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const backDropRef = useRef<HTMLDivElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
@@ -37,11 +39,17 @@ export const TextArea: React.FC<TextAreaProps> = ({
   const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     const value = event.target.value;
 
-    setValue(value)
+    setValue(value);
+  }
+
+  const handleScroll = (event: UIEvent<HTMLElement>): void => {
+    if (!backDropRef.current) return;
+
+    backDropRef.current.scrollTop = event.currentTarget.scrollTop;
   }
 
   useLayoutEffect(() => {
-    const currentElement = textAreaRef.current;
+    const currentElement = containerRef.current;
 
     if (!currentElement) return;
 
@@ -55,17 +63,21 @@ export const TextArea: React.FC<TextAreaProps> = ({
     updateSize();
 
     return () => window.removeEventListener('resize', updateSize);
-  }, [textAreaRef]);
+  }, [containerRef]);
 
   return (
-    <div className={textAreaClasses} ref={textAreaRef}>
-      {highlightTags && <div style={{width: width, height: height}} className={styles.backdrop}>
-        <div dangerouslySetInnerHTML={{__html: applyHighlights(value)}} className={styles.highlights}></div>
-      </div>}
+    <div className={textAreaClasses} ref={containerRef}>
+      {highlightTags && (
+        <div ref={backDropRef} style={{width: width, height: height}} className={styles.backdrop}>
+          <div dangerouslySetInnerHTML={{__html: applyHighlights(value)}} className={styles.highlights}/>
+        </div>
+      )}
 
       <textarea style={{width: width, height: height}}
+                ref={textAreaRef}
                 value={value}
                 onChange={onChangeHandler}
+                onScroll={handleScroll}
                 onKeyDown={onKeyDownHandler}
                 {...attributes}
       />
