@@ -2,10 +2,10 @@ import React from "react";
 import {Note} from "./Note";
 import {Grid} from "@ui";
 import {NotesListProps} from "./NotesList.types";
-import {isArrEmpty} from "@helpers";
+import {getFilteredNotes} from "./NoteList.helpers";
 
 export const NoteList: React.FC<NotesListProps> = ({activeFilters, notes, deleteNote, editNote,}) => {
-  const filteredNotes = !isArrEmpty(activeFilters) ? notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) : notes; //TODO notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) to Note.helpres
+  const filteredNotes = getFilteredNotes(notes, activeFilters);
 
   return (
     <Grid>

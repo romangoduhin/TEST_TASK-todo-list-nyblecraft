@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {extractTags, getUniqueTags} from "./components/Main/Main.helpers";
 import {getRandId, isArrEmpty} from "@helpers";
 import {Note, UseNotesReturn} from "./App.types";
+import {extractTags, getUniqueTags} from "./App.helpers";
 
 export const useNotes = (): UseNotesReturn => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -16,37 +16,39 @@ export const useNotes = (): UseNotesReturn => {
       tags
     }
 
-    setNotes(notes => [...notes, note])
+    setNotes(notes => [...notes, note]);
   }
 
   const deleteNote = (note: Note): void => {
-    const id = note.id //TODO
+    const {id} = note;
 
-    setNotes(notes => notes.filter(note => note.id !== id)) //TODO
+    const filteredNotes = notes.filter(note => note.id !== id);
+
+    setNotes(filteredNotes);
   }
 
   const editNote = (note: Note, newText: string): void => {
-    const {id} = note
+    const {id} = note;
 
     const tags = extractTags(newText);
 
-    const editedNotes = notes.map(note => note.id === id ? {...note, text: newText, tags} : note)
+    const editedNotes = notes.map(note => note.id === id ? {...note, text: newText, tags} : note);
 
-    setNotes(editedNotes)
+    setNotes(editedNotes);
   }
 
   useEffect(() => {
     if (isArrEmpty(notes)) {
-      setTags([])
+      setTags([]);
 
       return;
     }
 
-    const uniqueTags = getUniqueTags(notes)
+    const uniqueTags = getUniqueTags(notes);
 
-    if (!uniqueTags) return
+    if (!uniqueTags) return;
 
-    setTags(uniqueTags)
+    setTags(uniqueTags);
   }, [notes]);
 
   return {notes, tags, addNote, deleteNote, editNote};
