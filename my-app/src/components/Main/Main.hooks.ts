@@ -7,7 +7,7 @@ export const useFilters = (tags: string[]): UseFiltersReturn => {
 
   const activeFilters = getActiveFilters(filters);
 
-  const toggle = (key: string) => {
+  const toggle = (key: string): void => {
     const toggledFilters = getToggledFilters(filters, key);
 
     setFilters(toggledFilters);

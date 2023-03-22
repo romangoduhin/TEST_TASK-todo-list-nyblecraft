@@ -1,18 +1,19 @@
 import {useEffect, useState} from "react";
 import {getRandId, isArrEmpty} from "@helpers";
 import {Note, UseNotesReturn} from "./App.types";
-import {extractTags, getUniqueTags} from "./App.helpers";
+import {getExtractedTags, getTrimmedStr, getUniqueTags} from "./App.helpers";
 
 export const useNotes = (): UseNotesReturn => {
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [tags, setTags] = useState<string[]>([]);
+  const [notes, setNotes] = useState<Note[]>(() => JSON.parse(localStorage.getItem("notes") || "[]"));
+  const [tags, setTags] = useState<string[]>(() => JSON.parse(localStorage.getItem("tags") || "[]"));
 
   const addNote = (value: string): void => {
-    const tags = extractTags(value)
+    const tags = getExtractedTags(value);
+    const trimmedText = getTrimmedStr(value);
 
     const note = {
       id: getRandId(),
-      text: value,
+      text: trimmedText,
       tags
     }
 
@@ -30,9 +31,10 @@ export const useNotes = (): UseNotesReturn => {
   const editNote = (note: Note, newText: string): void => {
     const {id} = note;
 
-    const tags = extractTags(newText);
+    const tags = getExtractedTags(newText);
+    const trimmedText = getTrimmedStr(newText);
 
-    const editedNotes = notes.map(note => note.id === id ? {...note, text: newText, tags} : note);
+    const editedNotes = notes.map(note => note.id === id ? {...note, text: trimmedText, tags} : note);
 
     setNotes(editedNotes);
   }
@@ -50,6 +52,11 @@ export const useNotes = (): UseNotesReturn => {
 
     setTags(uniqueTags);
   }, [notes]);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("tags", JSON.stringify(tags));
+  }, [notes])
 
   return {notes, tags, addNote, deleteNote, editNote};
 }
