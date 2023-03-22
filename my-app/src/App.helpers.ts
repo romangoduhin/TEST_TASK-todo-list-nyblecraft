@@ -11,7 +11,7 @@ export const getUniqueTags = (notes: Note[]): string[] => {
   return uniqueTags;
 }
 
-export const extractTags = (text: string): string[] => {
+export const getExtractedTags = (text: string): string[] => {
   const tags = text.match(REGEX_PATTERN);
 
   if (!tags) return [];

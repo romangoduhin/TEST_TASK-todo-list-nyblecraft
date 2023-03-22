@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 import {getRandId, isArrEmpty} from "@helpers";
 import {Note, UseNotesReturn} from "./App.types";
-import {extractTags, getUniqueTags} from "./App.helpers";
+import {getExtractedTags, getUniqueTags} from "./App.helpers";
 
 export const useNotes = (): UseNotesReturn => {
   const [notes, setNotes] = useState<Note[]>([]);
   const [tags, setTags] = useState<string[]>([]);
 
   const addNote = (value: string): void => {
-    const tags = extractTags(value)
+    const tags = getExtractedTags(value)
 
     const note = {
       id: getRandId(),
@@ -30,7 +30,7 @@ export const useNotes = (): UseNotesReturn => {
   const editNote = (note: Note, newText: string): void => {
     const {id} = note;
 
-    const tags = extractTags(newText);
+    const tags = getExtractedTags(newText);
 
     const editedNotes = notes.map(note => note.id === id ? {...note, text: newText, tags} : note);
 
