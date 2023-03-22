@@ -1,6 +1,6 @@
-import React from "react";
+import {ReactNode} from "react";
 
 export type GridProps = {
-  children: React.ReactNode,
-  className?: string
+  children: ReactNode,
+  className?: string,
 }

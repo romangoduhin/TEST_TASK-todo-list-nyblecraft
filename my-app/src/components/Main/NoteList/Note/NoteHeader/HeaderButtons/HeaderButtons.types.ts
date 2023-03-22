@@ -3,5 +3,5 @@ export type HeaderButtonsProps = {
   isSaveDisabled: boolean,
   onEdit: () => void,
   onSave: () => void,
-  onDelete: () => void
+  onDelete: () => void,
 }

@@ -4,5 +4,5 @@ export type NoteHeaderProps = {
   isSaveDisabled: boolean,
   onEdit: () => void,
   onSave: () => void,
-  onDelete: () => void
+  onDelete: () => void,
 }

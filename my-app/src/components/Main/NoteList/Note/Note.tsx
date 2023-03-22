@@ -18,13 +18,13 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   const onSaveHandler = (): void => {
     onEditHandler();
 
-    if (isStrEmpty(text)) return
+    if (isStrEmpty(text)) return;
 
-    editNote(data, text)
+    editNote(data, text);
   }
 
   const onDeleteHandler = (): void => {
-    deleteNote(data)
+    deleteNote(data);
   }
 
   return (

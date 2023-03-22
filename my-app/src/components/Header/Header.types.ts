@@ -1,3 +1,3 @@
 export type HeaderProps = {
-  addNote: (value: string) => void
+  addNote: (value: string) => void,
 }

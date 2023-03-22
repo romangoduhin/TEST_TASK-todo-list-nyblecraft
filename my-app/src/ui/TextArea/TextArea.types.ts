@@ -1,6 +1,6 @@
-import React from "react";
+import {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 
-export type TextAreaAttributes = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+export type TextAreaAttributes = DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
 export type TextAreaProps = TextAreaAttributes & {
   className?: string,

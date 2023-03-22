@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 export const Filter: React.FC<FilterProps> = ({filter, onClick}) => {
   const onClickHandler = (): void => {
-    onClick(filter.key)
+    onClick(filter.key);
   }
 
   const filterClasses = classNames(

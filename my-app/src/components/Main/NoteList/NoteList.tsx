@@ -5,7 +5,7 @@ import {NotesListProps} from "./NotesList.types";
 import {isArrEmpty} from "@helpers";
 
 export const NoteList: React.FC<NotesListProps> = ({activeFilters, notes, deleteNote, editNote,}) => {
-  const filteredNotes = !isArrEmpty(activeFilters) ? notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) : notes //TODO notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) to Note.helpres
+  const filteredNotes = !isArrEmpty(activeFilters) ? notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) : notes; //TODO notes.filter(note => note.tags.some(tag => activeFilters.includes(tag))) to Note.helpres
 
   return (
     <Grid>

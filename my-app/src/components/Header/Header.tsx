@@ -5,19 +5,19 @@ import {HeaderProps} from "./Header.types";
 import {isStrEmpty} from "@helpers";
 
 export const Header: React.FC<HeaderProps> = ({addNote}) => {
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>('');
 
-  const isSubmitDisabled = isStrEmpty(value)
+  const isSubmitDisabled = isStrEmpty(value);
 
   const clearValue = (): void => {
-    setValue('')
+    setValue('');
   }
 
   const onSubmitHandler = (): void => {
-    if (isStrEmpty(value)) return
+    if (isStrEmpty(value)) return;
 
-    addNote(value)
-    clearValue()
+    addNote(value);
+    clearValue();
   }
 
   return (

@@ -1,11 +1,11 @@
-import React from "react";
+import {ReactNode, DetailedHTMLProps, HTMLAttributes} from "react";
 
 export type TextSize = "small" | "medium" | "large";
 
-export type ParagraphAttributes = React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
+export type ParagraphAttributes = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
 export type TextProps = ParagraphAttributes & {
   className?: string,
   size?: TextSize,
-  children: React.ReactNode
+  children: ReactNode
 }

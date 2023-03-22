@@ -9,7 +9,7 @@ export const Text: React.FC<TextProps> = ({size = "small", className, children, 
     className,
     size === "small" && styles.small,
     size === "medium" && styles.medium,
-    size === "large" && styles.large
+    size === "large" && styles.large,
   )
 
   return (

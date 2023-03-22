@@ -8,7 +8,7 @@ import {isArrEmpty} from "@helpers";
 import {useFilters} from "./Main.hooks";
 
 export const Main: React.FC<MainProps> = ({deleteNote, editNote, notes, tags}) => {
-  const {filters, activeFilters, toggle} = useFilters(tags)
+  const {filters, activeFilters, toggle} = useFilters(tags);
 
   if (isArrEmpty(notes)) return <Text className={styles.emptyContent} size={"large"}>Nothing To Show</Text>
 
