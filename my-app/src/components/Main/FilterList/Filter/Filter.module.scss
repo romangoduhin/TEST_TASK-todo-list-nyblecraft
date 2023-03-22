@@ -1,11 +1,9 @@
 @import "@mixins";
 @import "@variables";
 
-.tag {
+.filterButton {
   padding: 5px;
   background-color: $purple;
-  @include flexCenter(row);
-  @include outlined();
 
   &.active {
     background-color: $green;

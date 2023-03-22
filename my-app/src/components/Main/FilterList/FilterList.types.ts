@@ -1,6 +1,6 @@
 import {Filter} from "../Main.types";
 
-export type TagsListProps = {
+export type FilterListProps = {
   filters: Filter[],
   toggle: (key: string) => void
 }

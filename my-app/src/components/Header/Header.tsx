@@ -7,6 +7,8 @@ import {isStrEmpty} from "@helpers";
 export const Header: React.FC<HeaderProps> = ({addNote}) => {
   const [value, setValue] = useState<string>('')
 
+  const isSubmitDisabled = isStrEmpty(value)
+
   const clearValue = (): void => {
     setValue('')
   }
@@ -29,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({addNote}) => {
 
       <Button className={styles.headerButton}
               onClick={onSubmitHandler}
-              disabled={false}
+              disabled={isSubmitDisabled}
               type="submit">
         Add Note
       </Button>

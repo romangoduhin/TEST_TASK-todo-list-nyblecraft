@@ -1,6 +1,6 @@
 import {Filter} from "../../Main.types";
 
-export type TagProps = {
+export type FilterProps = {
   filter: Filter,
   onClick: (key: string) => void
 }

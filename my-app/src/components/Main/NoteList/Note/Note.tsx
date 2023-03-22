@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {NoteProps} from "./Note.types";
 import styles from "./Note.module.scss";
 import {NoteHeader} from "./NoteHeader";
@@ -8,7 +8,8 @@ import {isStrEmpty} from "@helpers";
 export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) => {
   const [text, setText] = useState(data.text);
   const [isEditing, setIsEditing] = useState(false);
-  const [isSaveDisabled, setTsSaveDisabled] = useState(false);
+
+  const isSaveDisabled = isStrEmpty(text);
 
   const onEditHandler = (): void => {
     setIsEditing(isEditing => !isEditing);
@@ -25,16 +26,6 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
   const onDeleteHandler = (): void => {
     deleteNote(data)
   }
-
-  useEffect(() => {
-    if (isStrEmpty(text)) {
-      setTsSaveDisabled(true)
-      return
-    }
-
-    setTsSaveDisabled(false)
-  }, [text]);
-
 
   return (
     <div className={styles.note}>
