@@ -1,10 +1,11 @@
-import {TextAreaValue} from "../../types/globalTypes";
-import React from "react";
+import {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 
-export type TextAreaAttributes = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+export type TextAreaAttributes = DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
-export interface TextAreaProps extends TextAreaAttributes {
-    className: string,
-    value: TextAreaValue,
-    setValue: (targetValue: TextAreaValue) => void
+export type TextAreaProps = TextAreaAttributes & {
+  highlightTags?: boolean,
+  value: string,
+  className?: string,
+  setValue: (targetValue: string) => void,
+  onSubmit: () => void
 }

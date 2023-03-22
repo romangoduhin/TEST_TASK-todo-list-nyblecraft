@@ -1,0 +1,4 @@
+.filtersGrid {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-auto-rows: 40px;
+}

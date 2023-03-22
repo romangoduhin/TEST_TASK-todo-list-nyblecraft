@@ -1,0 +1,17 @@
+@import "@variables";
+
+.customText {
+  text-overflow: ellipsis;
+
+  &.small {
+    font-size: $smallFont;
+  }
+
+  &.medium {
+    font-size: $mediumFont;
+  }
+
+  &.large {
+    font-size: $largeFont;
+  }
+}

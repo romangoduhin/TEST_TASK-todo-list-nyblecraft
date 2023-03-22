@@ -1,0 +1,11 @@
+@import "@mixins";
+@import "@variables";
+
+.filterButton {
+  padding: 5px;
+  background-color: $purple;
+
+  &.active {
+    background-color: $green;
+  }
+}

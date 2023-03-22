@@ -1,15 +1,15 @@
-@import "./assets/mixins";
-@import "./assets/variables";
+@import "@mixins";
+@import "@variables";
 
 .app {
   width: 100vw;
   height: 100vh;
-  @include flexCenter(column);
   background-color: $white;
+  @include flexCenter(column);
 
   .content {
     padding: 20px;
-    width: 80%;
+    width: 100%;
     height: 100%;
   }
 }
