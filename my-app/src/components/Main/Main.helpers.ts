@@ -1,6 +1,6 @@
-import {Note} from "@globalTypes";
 import {isArrEmpty} from "@helpers";
-import {Filter} from "./Main.hooks";
+import {Note} from "../../App.types";
+import {Filter} from "./Main.types";
 
 const REGEX_PATTERN = /#[a-zA-Z0-9А-Яа-я_]+/g;
 

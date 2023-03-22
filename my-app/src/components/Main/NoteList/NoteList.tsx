@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {Note} from "./Note";
 import {Grid} from "@ui";
 import {NotesListProps} from "./NotesList.types";

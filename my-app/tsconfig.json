@@ -30,9 +30,6 @@
       "@variables": [
         "./src/assets/variables.scss"
       ],
-      "@globalTypes": [
-        "./src/types"
-      ],
       "@helpers": [
         "./src/helpers"
       ]

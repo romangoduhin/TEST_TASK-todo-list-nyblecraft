@@ -1,4 +1,4 @@
-import {Note} from "@globalTypes";
+import {Note} from "../../../../App.types";
 
 export type NoteProps = {
   deleteNote: (note: Note) => void,

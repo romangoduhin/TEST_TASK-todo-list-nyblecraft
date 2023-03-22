@@ -1,4 +1,4 @@
-import {Filter} from "../../Main.hooks";
+import {Filter} from "../../Main.types";
 
 export type TagProps = {
   filter: Filter,
