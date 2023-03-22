@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import {TextAreaProps} from "./TextArea.types";
-import {ChangeEvent, KeyboardEvent} from "@globalTypes";
 import styles from "./TextArea.module.scss";
 
 const ENTER_KEY_CODE = "Enter";
@@ -12,7 +11,7 @@ export const TextArea: React.FC<TextAreaProps> = ({className, value, setValue, o
     className,
   )
 
-  const onKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>): void => {
+  const onKeyDownHandler = (event: React.KeyboardEvent<HTMLTextAreaElement>): void => {
     const isKeyEnter = event.code === ENTER_KEY_CODE;
     const isKeyShifted = event.shiftKey;
 
@@ -22,7 +21,7 @@ export const TextArea: React.FC<TextAreaProps> = ({className, value, setValue, o
     }
   }
 
-  const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+  const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const value = event.target.value;
 
     setValue(value)

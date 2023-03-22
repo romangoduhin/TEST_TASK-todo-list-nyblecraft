@@ -1,5 +1,6 @@
-import {Tag} from "@globalTypes";
+import {Filter} from "../../Main.hooks";
 
-export interface TagProps {
-  tag: Tag
+export type TagProps = {
+  filter: Filter,
+  onClick: (key: string) => void
 }

@@ -1,4 +1,4 @@
-export interface NoteHeaderProps {
+export type NoteHeaderProps = {
   index: number,
   isEditing: boolean,
   isSaveDisabled: boolean,

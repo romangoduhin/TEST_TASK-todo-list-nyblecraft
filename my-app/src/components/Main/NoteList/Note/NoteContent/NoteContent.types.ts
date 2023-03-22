@@ -1,4 +1,4 @@
-export interface NoteContentProps {
+export type NoteContentProps = {
   text: string,
   setText: (text: string) => void,
   isEditing: boolean,

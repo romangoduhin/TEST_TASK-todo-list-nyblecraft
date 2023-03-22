@@ -1,5 +1,3 @@
-import {Note} from "@globalTypes";
-
-export interface HeaderProps {
-  addNote: (note: Note) => void
+export type HeaderProps = {
+  addNote: (value: string) => void
 }

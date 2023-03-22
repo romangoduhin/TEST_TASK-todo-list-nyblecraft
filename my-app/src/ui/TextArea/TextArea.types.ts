@@ -1,10 +1,9 @@
 import React from "react";
-import {ClassName} from "@globalTypes";
 
 export type TextAreaAttributes = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
-export interface TextAreaProps extends TextAreaAttributes {
-  className?: ClassName,
+export type TextAreaProps = TextAreaAttributes & {
+  className?: string,
   value: string,
   setValue: (targetValue: string) => void,
   onSubmit: () => void

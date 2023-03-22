@@ -1,12 +1,11 @@
-import {Children, ClassName} from "@globalTypes";
 import React from "react";
 
 export type TextSize = "small" | "medium" | "large";
 
 export type ParagraphAttributes = React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
-export interface TextProps extends ParagraphAttributes {
-  className?: ClassName,
+export type TextProps = ParagraphAttributes & {
+  className?: string,
   size?: TextSize,
-  children: Children
+  children: React.ReactNode
 }

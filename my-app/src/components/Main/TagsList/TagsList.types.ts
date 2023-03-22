@@ -1,5 +1,6 @@
-import {Tags} from "@globalTypes";
+import {Filter} from "../Main.hooks";
 
-export interface TagsListProps {
-  tags: Tags
+export type TagsListProps = {
+  filters: Filter[],
+  toggle: (key: string) => void
 }

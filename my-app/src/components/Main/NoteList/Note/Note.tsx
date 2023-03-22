@@ -3,7 +3,7 @@ import {NoteProps} from "./Note.types";
 import styles from "./Note.module.scss";
 import {NoteHeader} from "./NoteHeader";
 import {NoteContent} from "./NoteContent";
-import {extractTags, isStrEmpty} from "@helpers";
+import {isStrEmpty} from "@helpers";
 
 export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) => {
   const [text, setText] = useState(data.text);
@@ -19,9 +19,7 @@ export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) =
 
     if (isStrEmpty(text)) return
 
-    const tags = extractTags(text);
-
-    editNote(data, text, tags)
+    editNote(data, text)
   }
 
   const onDeleteHandler = (): void => {

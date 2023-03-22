@@ -1,6 +1,6 @@
-import {Children, ClassName} from "@globalTypes";
+import React from "react";
 
-export interface GridProps {
-  children: Children,
-  className?: ClassName
+export type GridProps = {
+  children: React.ReactNode,
+  className?: string
 }

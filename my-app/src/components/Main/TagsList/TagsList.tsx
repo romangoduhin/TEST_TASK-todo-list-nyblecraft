@@ -4,10 +4,10 @@ import {TagsListProps} from "./TagsList.types";
 import {Tag} from "./Tag";
 import {Grid} from "@ui";
 
-export const TagsList: React.FC<TagsListProps> = ({tags}) => {
+export const TagsList: React.FC<TagsListProps> = ({filters, toggle}) => {
   return (
     <Grid className={styles.tagsGrid}>
-      {tags.map((tag, index) => <Tag key={index} tag={tag}/>)}
+      {filters.map((filter, index) => <Tag key={index} filter={filter} onClick={toggle}/>)}
     </Grid>
   );
 };

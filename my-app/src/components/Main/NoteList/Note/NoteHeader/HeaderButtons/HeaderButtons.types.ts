@@ -1,4 +1,4 @@
-export interface HeaderButtonsProps {
+export type HeaderButtonsProps = {
   isEditing: boolean,
   isSaveDisabled: boolean,
   onEdit: () => void,
