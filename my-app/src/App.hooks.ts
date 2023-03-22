@@ -4,8 +4,8 @@ import {Note, UseNotesReturn} from "./App.types";
 import {getExtractedTags, getTrimmedStr, getUniqueTags} from "./App.helpers";
 
 export const useNotes = (): UseNotesReturn => {
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [tags, setTags] = useState<string[]>([]);
+  const [notes, setNotes] = useState<Note[]>(() => JSON.parse(localStorage.getItem("notes") || "[]"));
+  const [tags, setTags] = useState<string[]>(() => JSON.parse(localStorage.getItem("tags") || "[]"));
 
   const addNote = (value: string): void => {
     const tags = getExtractedTags(value);
@@ -52,6 +52,11 @@ export const useNotes = (): UseNotesReturn => {
 
     setTags(uniqueTags);
   }, [notes]);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("tags", JSON.stringify(tags));
+  }, [notes])
 
   return {notes, tags, addNote, deleteNote, editNote};
 }
