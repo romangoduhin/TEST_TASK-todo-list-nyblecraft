@@ -18,3 +18,5 @@ export const getExtractedTags = (text: string): string[] => {
 
   return tags;
 }
+
+export const getTrimmedStr = (str: string): string => str.replace(/  +/g, ' ')

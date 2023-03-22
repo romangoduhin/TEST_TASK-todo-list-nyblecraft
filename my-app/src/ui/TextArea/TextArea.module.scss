@@ -1,14 +1,44 @@
 @import "@variables";
 @import "@mixins";
 
-.customTextArea {
-  padding: 10px;
-  font-size: $mediumFont;
-  background-color: $white;
-  resize: none;
-  @include outlined();
+.textAreaContainer {
+  width: 100%;
+  height: 100%;
 
-  &:focus {
-    @include focused();
+
+  .backdrop {
+    z-index: 1;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .highlights {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: $mediumFont;
+      color: transparent;
+
+      mark {
+        color: red;
+        background-color: $yellow;
+      }
+    }
+  }
+
+  textarea {
+    z-index: 2;
+    position: absolute;
+    margin: 0;
+    padding: 10px;
+    font-size: $mediumFont;
+    background-color: transparent;
+    resize: none;
+    @include outlined();
+
+    &:focus {
+      @include focused();
+    }
   }
 }

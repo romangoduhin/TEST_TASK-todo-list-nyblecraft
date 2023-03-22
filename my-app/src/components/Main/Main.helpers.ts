@@ -9,7 +9,7 @@ export const getActiveFilters = (filters: Filter[]): string[] => {
 }
 
 export const getToggledFilters = (filters: Filter[], key: string): Filter[] => {
-  const activateFilter = (filter: Filter) => ({...filter, isActive: !filter.isActive});
+  const activateFilter = (filter: Filter): Filter => ({...filter, isActive: !filter.isActive});
 
   return filters.map(filter => filter.key === key ? activateFilter(filter) : filter);
 }
