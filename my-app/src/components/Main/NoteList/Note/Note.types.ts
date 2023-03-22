@@ -1,8 +1,8 @@
-import {Note, Tags} from "@globalTypes";
+import {Note} from "../../../../App.types";
 
-export interface NoteProps {
+export type NoteProps = {
   deleteNote: (note: Note) => void,
-  editNote: (note: Note, newText: string, newTags: Tags) => void,
+  editNote: (note: Note, newText: string) => void,
   index: number,
-  data: Note
+  data: Note,
 }

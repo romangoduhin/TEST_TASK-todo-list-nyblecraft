@@ -1,47 +1,35 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {NoteProps} from "./Note.types";
 import styles from "./Note.module.scss";
 import {NoteHeader} from "./NoteHeader";
 import {NoteContent} from "./NoteContent";
-import {extractTags, isStrEmpty} from "@helpers";
+import {isStrEmpty} from "@helpers";
 
 export const Note: React.FC<NoteProps> = ({deleteNote, editNote, index, data}) => {
   const [text, setText] = useState(data.text);
   const [isEditing, setIsEditing] = useState(false);
-  const [isSaveDisabled, setTsSaveDisabled] = useState(false);
+
+  const isSaveDisabled = isStrEmpty(text);
 
   const onEditHandler = (): void => {
-    setIsEditing(prev => !prev);
+    setIsEditing(isEditing => !isEditing);
   }
 
   const onSaveHandler = (): void => {
     onEditHandler();
 
-    if (isStrEmpty(text)) return
+    if (isStrEmpty(text)) return;
 
-    const tags = extractTags(text);
-
-    editNote(data, text, tags)
+    editNote(data, text);
   }
 
   const onDeleteHandler = (): void => {
-    deleteNote(data)
+    deleteNote(data);
   }
-
-  useEffect(() => {
-    if (isStrEmpty(text)) {
-      setTsSaveDisabled(true)
-      return
-    }
-    
-    setTsSaveDisabled(false)
-  }, [text]);
-
 
   return (
     <div className={styles.note}>
       <NoteHeader index={index}
-                  data={data}
                   isEditing={isEditing}
                   isSaveDisabled={isSaveDisabled}
                   onEdit={onEditHandler}

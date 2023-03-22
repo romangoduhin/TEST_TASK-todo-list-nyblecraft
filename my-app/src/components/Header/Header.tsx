@@ -2,28 +2,22 @@ import React, {useState} from "react";
 import {Button, TextArea} from "@ui";
 import styles from "./Header.module.scss";
 import {HeaderProps} from "./Header.types";
-import {extractTags, getRandId, isStrEmpty} from "@helpers";
+import {isStrEmpty} from "@helpers";
 
 export const Header: React.FC<HeaderProps> = ({addNote}) => {
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>('');
+
+  const isSubmitDisabled = isStrEmpty(value);
 
   const clearValue = (): void => {
-    setValue('')
+    setValue('');
   }
 
   const onSubmitHandler = (): void => {
-    if (isStrEmpty(value)) return
+    if (isStrEmpty(value)) return;
 
-    const tags = extractTags(value)
-
-    const note = {
-      id: getRandId(),
-      text: value,
-      tags
-    }
-
-    addNote(note)
-    clearValue()
+    addNote(value);
+    clearValue();
   }
 
   return (
@@ -37,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({addNote}) => {
 
       <Button className={styles.headerButton}
               onClick={onSubmitHandler}
-              disabled={false}
+              disabled={isSubmitDisabled}
               type="submit">
         Add Note
       </Button>

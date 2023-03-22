@@ -1,3 +1,3 @@
-export interface HeaderIndexProps {
-  index: number
+export type HeaderIndexProps = {
+  index: number,
 }

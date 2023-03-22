@@ -1,11 +1,10 @@
-import {Children, ClassName} from "@globalTypes";
 import React from "react";
 
 export type ButtonAttributes = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
-export interface ButtonProps extends ButtonAttributes {
-  className?: ClassName,
+export type ButtonProps = ButtonAttributes & {
+  className?: string,
   disabled?: boolean,
-  children: Children,
+  children: React.ReactNode,
   onClick: () => void,
 }

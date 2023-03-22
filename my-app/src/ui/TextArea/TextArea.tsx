@@ -1,7 +1,6 @@
-import React from "react";
+import React, {KeyboardEvent, ChangeEvent} from "react";
 import classNames from "classnames";
 import {TextAreaProps} from "./TextArea.types";
-import {ChangeEvent, KeyboardEvent} from "@globalTypes";
 import styles from "./TextArea.module.scss";
 
 const ENTER_KEY_CODE = "Enter";

@@ -7,7 +7,7 @@ export const Button: React.FC<ButtonProps> = ({className, disabled = false, chil
   const buttonClasses = classNames(
     styles.customButton,
     className,
-    disabled && styles.disabled
+    disabled && styles.disabled,
   )
 
   return (

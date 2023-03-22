@@ -1,7 +1,8 @@
-import {Note, Notes, Tags} from "@globalTypes";
+import {Note} from "../../../App.types";
 
-export interface NotesListProps {
-  notes: Notes,
+export type NotesListProps = {
+  activeFilters: string[],
+  notes: Note[],
   deleteNote: (note: Note) => void,
-  editNote: (note: Note, newText: string, newTags: Tags) => void
+  editNote: (note: Note, newText: string) => void,
 }
